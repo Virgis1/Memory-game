@@ -6,7 +6,9 @@ let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 let result = 0;
-let timeleft = 80;
+let timeleft = 60;
+
+document.getElementById("time").innerHTML = timeleft;
 
 function flipCard() {
   if (lockBoard) return;
@@ -72,10 +74,11 @@ function checkForMatch() {
   })();
 
 let timer = setInterval(function(){
-  if(timeleft <= 0){
+  if(timeleft < 0){
     clearInterval(timer);
-    alert('Laikas pasibaigė');
-    resetGame()
+    // alert('Laikas pasibaigė');
+    // resetGame()
+    cards.forEach(card => card.removeEventListener('click', flipCard));
   } else {
     document.getElementById("time").innerHTML = timeleft;
   }
