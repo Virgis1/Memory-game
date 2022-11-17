@@ -95,6 +95,10 @@ body {
 }
 
 @media only screen and (max-width: 760px) {
+    body {
+        align-items: baseline;
+    }
+    
     .wrapper {
         width: 90%;
         height: 80vh;
